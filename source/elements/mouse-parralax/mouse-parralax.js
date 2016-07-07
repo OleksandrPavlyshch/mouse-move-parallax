@@ -7,6 +7,7 @@ var mouseMoveParralax = function (userParams) {
 		, braking: 5
 		, units: '%'
 		, isOposite: false
+		, isRotate: false
 	};
 
 	var params = this.extendParams(defaultParams, userParams);
@@ -38,7 +39,16 @@ mouseMoveParralax.prototype.calculatePositionValue = function(event, params){
 		, containerHeight = params.container.offsetHeight
 		, xMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((x/containerWidth)*100-50)/params.braking)
 		, yMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((y/containerHeight)*100-50)/params.braking)
-		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')'; 
+		, cx = Math.ceil(containerWidth / params.braking)
+		, cy = Math.ceil(containerHeight / params.braking)
+		, dx = x - cx
+		, dy = y - cy
+		, tiltx = (dy / cy)
+		, tilty = - (dx / cx)
+		, radius = Math.sqrt(Math.pow(tiltx,2) + Math.pow(tilty,2))
+		, degree = (radius * 10)
+		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')'
+		, rotateValue = 'rotate3d(' + -tiltx + ', ' + -tilty + ', 0, ' + degree + 'deg)';
 
-		return translateValue;
+		return params.isRotate ? rotateValue : translateValue;
 };

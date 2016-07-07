@@ -1,7 +1,8 @@
 'use strict';
 window.onload = function () {
 	var dots = document.getElementsByClassName('background_dot')
-		, container = document.getElementById('background');
+		, container = document.getElementById('background')
+		, backgroundImage = document.getElementById('background_image');
 
 	var getRandomNumber = function (min, max) {
 			return Math.round(Math.random() * (max - min) + min);
@@ -16,4 +17,10 @@ window.onload = function () {
 			// , isOposite: getRandomNumber(0, 1)
 		});
 	}
+		new mouseMoveParralax({
+			container: container
+			, element: backgroundImage
+			, braking: 5
+			, isRotate: true
+		});
 };
