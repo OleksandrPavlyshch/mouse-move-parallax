@@ -1,19 +1,28 @@
 'use strict';
-var mouseMoveParralax = function (container, element, speed, units) {
-	container.addEventListener('mousemove', function (event) {
-		var braking = speed || 5
-			, valueUnits = units || '%'
-			, x = event.clientX
+var mouseMoveParralax = function (userParams) {
+
+	var defaultParams = {
+		container: null
+		, element: null
+		, braking: 5
+		, units: '%'
+	};
+
+	var params = this.extendParams(defaultParams, userParams);
+
+
+	params.container.addEventListener('mousemove', function (event) {
+		var	x = event.clientX
 			, y = event.clientY
 			, containerWidth = this.offsetWidth
 			, containerHeight = this.offsetHeight
-			, xMousePositionFromCenter = Math.round(-((x/containerWidth)*100-50)/braking)
-			, yMousePositionFromCenter = Math.round(-((y/containerHeight)*100-50)/braking)
-			, translateValue = 'translate(' + xMousePositionFromCenter + valueUnits + ', ' + yMousePositionFromCenter + valueUnits +')';
+			, xMousePositionFromCenter = Math.round(-((x/containerWidth)*100-50)/params.braking)
+			, yMousePositionFromCenter = Math.round(-((y/containerHeight)*100-50)/params.braking)
+			, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')';
 
 
-			element.style.transform = translateValue;
-			element.style['-webkit-transform'] = translateValue;
+			params.element.style.transform = translateValue;
+			params.element.style['-webkit-transform'] = translateValue;
 	});
 };
 

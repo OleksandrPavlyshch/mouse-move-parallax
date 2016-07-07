@@ -8,6 +8,11 @@ window.onload = function () {
 		};
 
 	for(var i = 0; i <  dots.length; i++){
-		new mouseMoveParralax(container, dots[i], getRandomNumber(2, 5)/6, 'px');
+		new mouseMoveParralax({
+			container: container
+			, element: dots[i]
+			, braking: getRandomNumber(2, 10)/6
+			, units: 'px'
+		});
 	}
 };
