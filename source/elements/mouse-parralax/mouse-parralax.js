@@ -6,6 +6,7 @@ var mouseMoveParralax = function (userParams) {
 		, element: null
 		, braking: 5
 		, units: '%'
+		, isOposite: false
 	};
 
 	var params = this.extendParams(defaultParams, userParams);
@@ -14,10 +15,11 @@ var mouseMoveParralax = function (userParams) {
 	params.container.addEventListener('mousemove', function (event) {
 		var	x = event.clientX
 			, y = event.clientY
+			, moveWayReltaiveMouse = params.isOposite ? -1 : 1
 			, containerWidth = this.offsetWidth
 			, containerHeight = this.offsetHeight
-			, xMousePositionFromCenter = Math.round(-((x/containerWidth)*100-50)/params.braking)
-			, yMousePositionFromCenter = Math.round(-((y/containerHeight)*100-50)/params.braking)
+			, xMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((x/containerWidth)*100-50)/params.braking)
+			, yMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((y/containerHeight)*100-50)/params.braking)
 			, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')';
 
 

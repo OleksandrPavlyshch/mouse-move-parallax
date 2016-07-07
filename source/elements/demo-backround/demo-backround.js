@@ -13,6 +13,7 @@ window.onload = function () {
 			, element: dots[i]
 			, braking: getRandomNumber(2, 20)/10
 			, units: 'px'
+			// , isOposite: getRandomNumber(0, 1)
 		});
 	}
 };
