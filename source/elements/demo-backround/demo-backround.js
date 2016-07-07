@@ -10,6 +10,6 @@ window.onload = function () {
 		};
 
 	for(var i = 0; i <  dots.length; i++){
-		new mouseMoveParralax(container, dots[i], getRandomNumber(2, 10));
+		new mouseMoveParralax(container, dots[i], getRandomNumber(2, 5)/4, 'px');
 	}
 };
