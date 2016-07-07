@@ -1,0 +1,33 @@
+$dot-amount: 40
+$dot-size: 50px
+
+.background
+	height: 100%
+	overflow: hidden
+	position: relative
+	&_image
+		position: absolute
+		width: 100%
+		height: 100%
+		left: 0
+		top: 0
+		bottom: 0
+		background: #fff url(../img/background-image.jpg) 50% 50% no-repeat
+		background-size: cover
+	&_dot
+		position: absolute
+		opacity: .7
+		z-index: 2
+		width: $dot-size
+		height: $dot-size
+		border-radius: 50%
+		box-shadow: inset 0 0 15px #333
+		@for $i from 1 through $dot-amount+1
+			&:nth-child(#{$i})
+				$red: random(256)-1
+				$green: random(256)-1
+				$blue: random(256)-1
+				// $alpha: random(100)/100
+				top: random(90) + 5 + %
+				left: random(90) + 5 + %
+				background-color: rgb($red, $green, $blue)
