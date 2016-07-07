@@ -16,3 +16,10 @@ var mouseMoveParralax = function (container, element, speed, units) {
 			element.style['-webkit-transform'] = translateValue;
 	});
 };
+
+mouseMoveParralax.prototype.extendParams = function(defaultParams, userParams){
+	for(var key in userParams)
+		if(userParams.hasOwnProperty(key))
+			defaultParams[key] = userParams[key];
+	return defaultParams;
+};
