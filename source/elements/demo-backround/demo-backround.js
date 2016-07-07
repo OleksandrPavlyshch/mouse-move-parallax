@@ -11,7 +11,7 @@ window.onload = function () {
 		new mouseMoveParralax({
 			container: container
 			, element: dots[i]
-			, braking: getRandomNumber(2, 10)/6
+			, braking: getRandomNumber(2, 20)/10
 			, units: 'px'
 		});
 	}
