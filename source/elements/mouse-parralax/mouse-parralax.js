@@ -6,6 +6,7 @@ var mouseMoveParralax = function (userParams) {
 		, element: null //parallax element
 		, braking: 5 // offset brake
 		, units: '%' // units type
+		, rotateSacale: 1 // scale element for translate
 		, isOposite: false // for mouse oposite move
 		, isRotate: false // for 3D rotate
 	};
@@ -13,6 +14,10 @@ var mouseMoveParralax = function (userParams) {
 	var thisFunc = this;
 
 	var params = thisFunc.extendParams(defaultParams, userParams);
+
+	//init scale
+	params.element.style.transform = 'scale(' + params.rotateSacale +')';
+	params.element.style['-webkit-transform'] = 'scale(' + params.rotateSacale +')';
 
 
 	params.container.addEventListener('mousemove', function (event) {
@@ -45,7 +50,7 @@ mouseMoveParralax.prototype.calculatePositionValue = function(event, params){
 		, tiltx = yMousePositionFromCenter * 90 /100
 		, tilty = xMousePositionFromCenter * 90 / 100
 
-		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')' + 'scale(' + params.braking/2 +')'
+		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')' + 'scale(' + params.rotateSacale +')'
 		, rotateValue = 'rotateY( '+tilty*-1+'deg ) rotateX( '+tiltx+'deg )' ;
 
 		console.log(params.braking);

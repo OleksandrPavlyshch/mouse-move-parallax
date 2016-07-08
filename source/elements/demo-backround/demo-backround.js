@@ -9,18 +9,20 @@ window.onload = function () {
 		};
 
 	for(var i = 0; i <  dots.length; i++){
+		var brake = getRandomNumber(2, 10)/5;
 		new mouseMoveParralax({
 			container: container
 			, element: dots[i]
-			, braking: getRandomNumber(2, 10)/5
+			, braking: brake
 			, units: 'px'
+			, rotateSacale: 0.8/brake
 			// , isOposite: getRandomNumber(0, 1)
 		});
 	}
 		new mouseMoveParralax({
 			container: container
 			, element: backgroundImage
-			, braking: 8
+			, braking: 9
 			, isRotate: true
 			, isOposite: true
 		});
