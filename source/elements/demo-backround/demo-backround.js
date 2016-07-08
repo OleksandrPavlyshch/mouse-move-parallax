@@ -12,7 +12,7 @@ window.onload = function () {
 		new mouseMoveParralax({
 			container: container
 			, element: dots[i]
-			, braking: getRandomNumber(2, 10)/10
+			, braking: getRandomNumber(2, 10)/5
 			, units: 'px'
 			// , isOposite: getRandomNumber(0, 1)
 		});
@@ -20,7 +20,7 @@ window.onload = function () {
 		new mouseMoveParralax({
 			container: container
 			, element: backgroundImage
-			, braking: 10
+			, braking: 8
 			, isRotate: true
 			, isOposite: true
 		});
