@@ -10,9 +10,10 @@ var mouseMoveParralax = function (userParams) {
 		, isRotate: false
 	};
 
-	var params = this.extendParams(defaultParams, userParams);
-
 	var thisFunc = this;
+	
+	var params = thisFunc.extendParams(defaultParams, userParams);
+
 
 	params.container.addEventListener('mousemove', function (event) {
 
