@@ -38,12 +38,12 @@ mouseMoveParralax.prototype.calculatePositionValue = function(event, params){
 		, containerWidth = params.container.offsetWidth
 		, containerHeight = params.container.offsetHeight
 
-		, xMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((x/containerWidth)*100-50)/params.braking)
-		, yMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((y/containerHeight)*100-50)/params.braking)
+		, xMousePositionFromCenter = moveWayReltaiveMouse * Math.round((x/containerWidth) * 200 - 100) / params.braking
+		, yMousePositionFromCenter = moveWayReltaiveMouse * Math.round((y/containerHeight) * 200 - 100) / params.braking
 
-		, tiltx = moveWayReltaiveMouse * 90/100/params.braking * Math.round((y/containerHeight)*200-100)
-		, tilty = moveWayReltaiveMouse * 90/100/params.braking * Math.round((x/containerWidth)*200-100)
-		
+		, tiltx = yMousePositionFromCenter * 90 /100
+		, tilty = xMousePositionFromCenter * 90 / 100
+
 		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')'
 		, rotateValue = 'rotateY( '+tilty*-1+'deg ) rotateX( '+tiltx+'deg )' ;
 
