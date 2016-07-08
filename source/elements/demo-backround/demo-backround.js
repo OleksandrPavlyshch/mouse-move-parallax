@@ -20,7 +20,8 @@ window.onload = function () {
 		new mouseMoveParralax({
 			container: container
 			, element: backgroundImage
-			, braking: 5
+			, braking: 10
 			, isRotate: true
+			, isOposite: true
 		});
 };

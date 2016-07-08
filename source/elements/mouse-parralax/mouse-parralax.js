@@ -37,18 +37,17 @@ mouseMoveParralax.prototype.calculatePositionValue = function(event, params){
 		, moveWayReltaiveMouse = params.isOposite ? -1 : 1
 		, containerWidth = params.container.offsetWidth
 		, containerHeight = params.container.offsetHeight
+
 		, xMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((x/containerWidth)*100-50)/params.braking)
 		, yMousePositionFromCenter = Math.round(moveWayReltaiveMouse * ((y/containerHeight)*100-50)/params.braking)
-		, cx = Math.ceil(containerWidth / params.braking)
-		, cy = Math.ceil(containerHeight / params.braking)
-		, dx = x - cx
-		, dy = y - cy
-		, tiltx = (dy / cy)
-		, tilty = - (dx / cx)
-		, radius = Math.sqrt(Math.pow(tiltx,2) + Math.pow(tilty,2))
-		, degree = (radius * 10)
+
+		, tiltx = moveWayReltaiveMouse * 90/100/params.braking * Math.round((y/containerHeight)*200-100)
+		, tilty = moveWayReltaiveMouse * 90/100/params.braking * Math.round((x/containerWidth)*200-100)
+		
 		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')'
-		, rotateValue = 'rotate3d(' + -tiltx + ', ' + -tilty + ', 0, ' + degree + 'deg)';
+		, rotateValue = 'rotateY( '+tilty*-1+'deg ) rotateX( '+tiltx+'deg )' ;
+
+		console.log('x='+tiltx+', y='+tilty);
 
 		return params.isRotate ? rotateValue : translateValue;
 };
