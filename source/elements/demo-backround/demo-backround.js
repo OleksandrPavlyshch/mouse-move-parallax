@@ -15,14 +15,14 @@ window.onload = function () {
 			, element: dots[i]
 			, braking: brake
 			, units: 'px'
-			, rotateSacale: 0.8/brake
+			, translateScale: 0.8/brake
 			// , isOposite: getRandomNumber(0, 1)
 		});
 	}
 		new mouseMoveParralax({
 			container: container
 			, element: backgroundImage
-			, braking: 9
+			, braking: 14
 			, isRotate: true
 			, isOposite: true
 		});
