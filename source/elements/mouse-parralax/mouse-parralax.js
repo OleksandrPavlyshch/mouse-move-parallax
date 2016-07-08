@@ -45,10 +45,10 @@ mouseMoveParralax.prototype.calculatePositionValue = function(event, params){
 		, tiltx = yMousePositionFromCenter * 90 /100
 		, tilty = xMousePositionFromCenter * 90 / 100
 
-		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')'
+		, translateValue = 'translate(' + xMousePositionFromCenter + params.units + ', ' + yMousePositionFromCenter + params.units +')' + 'scale(' + params.braking/2 +')'
 		, rotateValue = 'rotateY( '+tilty*-1+'deg ) rotateX( '+tiltx+'deg )' ;
 
-		console.log('x='+tiltx+', y='+tilty);
+		console.log(params.braking);
 
 		return params.isRotate ? rotateValue : translateValue;
 };
