@@ -2,16 +2,16 @@
 var mouseMoveParralax = function (userParams) {
 
 	var defaultParams = {
-		container: null
-		, element: null
-		, braking: 5
-		, units: '%'
-		, isOposite: false
-		, isRotate: false
+		container: null //container element
+		, element: null //parallax element
+		, braking: 5 // offset brake
+		, units: '%' // units type
+		, isOposite: false // for mouse oposite move
+		, isRotate: false // for 3D rotate
 	};
 
 	var thisFunc = this;
-	
+
 	var params = thisFunc.extendParams(defaultParams, userParams);
 
 
