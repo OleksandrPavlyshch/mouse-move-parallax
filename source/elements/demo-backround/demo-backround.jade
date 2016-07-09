@@ -1,6 +1,8 @@
 -var dots_amount = 40
 section#background.background
 	#background_image.background_image
-		//- +insert-image('background-image.jpg', 'background-image')
+		+insert-image('smoke1.png', 'smoke-image1', 'background_image-smoke-cloud1')
+		+insert-image('smoke2.png', 'smoke-image2', 'background_image-smoke-cloud2')
+		+insert-image('smoke3.png', 'smoke-image3', 'background_image-smoke-cloud3')
 	- for (var dot = 1; dot <= dots_amount; dot++)
 		.background_dot

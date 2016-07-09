@@ -1,6 +1,17 @@
 $dot-amount: 40
 $dot-size: 50px
 
+@keyframes wave
+	0%
+		-webkit-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg)
+		-moz-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg)
+		transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg)
+
+	100%
+		-webkit-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg)
+		-moz-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg)
+		transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg)
+
 .background
 	height: 100%
 	overflow: hidden
@@ -20,6 +31,23 @@ $dot-size: 50px
 		transition: transform .2s ease
 		background-size: cover
 		will-change: transform
+		img
+			opacity: .7
+			position: absolute
+		&-smoke
+			&-cloud1
+				animation: wave 7s 0.1s infinite linear
+				display: block
+				right: 40%
+				bottom: 0
+			&-cloud2
+				left: -14%
+				bottom: -6%
+				animation: wave 8s 0.1s infinite linear
+			&-cloud3
+				right: -4%
+				bottom: -17%
+				animation: wave 9s 0.1s infinite linear
 	&_dot
 		position: absolute
 		opacity: .7
